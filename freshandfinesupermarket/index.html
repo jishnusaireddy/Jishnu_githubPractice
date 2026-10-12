@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>FreshFine Supermarket</title>
+	<style>
+		:root{--green:#176b46;--light:#f4fbf6;--orange:#f48b35;--ink:#18332a;--muted:#66776f}
+		*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff}
+		header{background:var(--light);border-bottom:1px solid #e1eee5;position:sticky;top:0;z-index:5}
+		.nav{max-width:1160px;margin:auto;padding:18px 22px;display:flex;align-items:center;gap:28px}.logo{font-size:24px;font-weight:800;color:var(--green);margin-right:auto}.logo span{color:var(--orange)}
+		nav a{margin:0 10px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}.cart{border:0;background:var(--green);color:#fff;border-radius:22px;padding:11px 17px;cursor:pointer;font-weight:700}
+		.hero{max-width:1160px;margin:0 auto;padding:64px 22px 54px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px}.eyebrow{color:var(--orange);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:12px}.hero h1{font-size:clamp(40px,5vw,64px);line-height:1.04;margin:12px 0 18px}.hero h1 span{color:var(--green)}.hero p{color:var(--muted);font-size:17px;line-height:1.6;max-width:510px}.shop-btn{display:inline-block;margin-top:12px;padding:14px 23px;border-radius:7px;background:var(--green);color:#fff;text-decoration:none;font-weight:700}.hero-art{min-height:280px;border-radius:24px;background:linear-gradient(135deg,#d8f3df,#fef0d9);display:flex;align-items:center;justify-content:center;font-size:120px;box-shadow:0 18px 40px #23633d16}
+		section{max-width:1160px;margin:auto;padding:30px 22px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.section-head h2{margin:0;font-size:28px}.search{border:1px solid #d7e5dc;padding:11px 15px;border-radius:8px;width:210px;outline-color:var(--green)}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid #e2ebe5;border-radius:12px;padding:14px;background:#fff;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px #174c3212}.pic{height:145px;background:#f5faf5;border-radius:9px;display:grid;place-items:center;font-size:67px}.card h3{font-size:16px;margin:13px 0 5px}.meta{color:var(--muted);font-size:13px}.price{font-weight:800;font-size:17px;margin:12px 0}.add{width:100%;border:1px solid var(--green);background:#fff;color:var(--green);padding:9px;border-radius:6px;cursor:pointer;font-weight:700}.add:hover{background:var(--green);color:#fff}
+		.features{background:var(--light);max-width:none;padding:34px calc((100% - 1116px)/2);display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.feature{display:flex;gap:14px;align-items:center}.feature b{display:block;margin-bottom:4px}.feature small{color:var(--muted)}.icon{font-size:29px}
+		footer{background:#123b2a;color:#dcefe3;padding:28px 22px;text-align:center;font-size:13px}.toast{position:fixed;right:20px;bottom:20px;background:#183d2d;color:#fff;padding:13px 18px;border-radius:7px;display:none;z-index:10}.modal{display:none;position:fixed;inset:0;background:#0007;z-index:8;align-items:center;justify-content:center}.modal-box{background:#fff;width:min(440px,92%);padding:25px;border-radius:12px}.modal-box h2{margin-top:0}.order-list{max-height:250px;overflow:auto}.order-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eee}.checkout{width:100%;background:var(--orange);color:#fff;border:0;padding:13px;border-radius:6px;font-weight:700;cursor:pointer;margin-top:14px}.close{float:right;border:0;background:none;font-size:22px;cursor:pointer}
+		@media(max-width:760px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:38px}.hero-art{min-height:190px;font-size:90px}.products{grid-template-columns:repeat(2,1fr)}.features{padding:28px 22px;grid-template-columns:1fr}.section-head{align-items:flex-start;gap:14px;flex-direction:column}.search{width:100%}}
+	</style>
+</head>
+<body>
+	<header><div class="nav"><div class="logo">Fresh<span>Fine</span></div><nav><a href="#products">Shop</a><a href="#why-us">Why us</a><a href="#contact">Contact</a></nav><button class="cart" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button></div></header>
+	<main>
+		<div class="hero"><div><div class="eyebrow">Good food, good mood</div><h1>Freshness delivered to your <span>door.</span></h1><p>Shop quality groceries, farm-fresh produce and everyday essentials at prices you'll love.</p><a class="shop-btn" href="#products">Start shopping →</a></div><div class="hero-art">🥬 🛒 🍎</div></div>
+		<section id="products"><div class="section-head"><h2>Popular picks</h2><input class="search" id="search" placeholder="Search products..." oninput="renderProducts()"></div><div class="products" id="productGrid"></div></section>
+		<div class="features" id="why-us"><div class="feature"><span class="icon">🚚</span><div><b>Fast delivery</b><small>At your doorstep today</small></div></div><div class="feature"><span class="icon">🌱</span><div><b>Fresh & reliable</b><small>Quality checked every day</small></div></div><div class="feature"><span class="icon">🔒</span><div><b>Secure shopping</b><small>Simple, safe checkout</small></div></div></div>
+	</main>
+	<footer id="contact">© 2025 FreshFine Supermarket · Fresh choices for every home</footer>
+	<div class="toast" id="toast"></div><div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeCart()">×</button><h2>Your cart</h2><div class="order-list" id="orderList"></div><div class="order-row"><b>Total</b><b id="total">$0.00</b></div><button class="checkout" onclick="placeOrder()">Place order</button></div></div>
+	<script>
+		// Lightweight browser backend: cart and orders persist through localStorage.
+		const products=[['Organic Apples','1 kg','🍎',3.99],['Fresh Avocado','3 pieces','🥑',4.49],['Farm Milk','1 litre','🥛',2.29],['Green Broccoli','500 g','🥦',2.79],['Sourdough Bread','400 g','🍞',3.49],['Orange Juice','1 litre','🧃',3.19],['Free-range Eggs','12 pack','🥚',4.99],['Cherry Tomatoes','250 g','🍅',2.59]];
+		let cart=JSON.parse(localStorage.getItem('freshfine-cart')||'[]');
+		function renderProducts(){const q=document.getElementById('search').value.toLowerCase();document.getElementById('productGrid').innerHTML=products.filter(p=>p[0].toLowerCase().includes(q)).map((p,i)=>`<article class="card"><div class="pic">${p[2]}</div><h3>${p[0]}</h3><div class="meta">${p[1]}</div><div class="price">$${p[3].toFixed(2)}</div><button class="add" onclick="add(${i})">Add to cart</button></article>`).join('')||'<p>No products found.</p>';}
+		function add(i){cart.push(products[i]);save();showToast(products[i][0]+' added to cart');}
+		function save(){localStorage.setItem('freshfine-cart',JSON.stringify(cart));document.getElementById('count').textContent=cart.length;}
+		function openCart(){document.getElementById('modal').style.display='flex';const rows=cart.map((p,i)=>`<div class="order-row"><span>${p[2]} ${p[0]}</span><span>$${p[3].toFixed(2)} <button onclick="removeItem(${i})">×</button></span></div>`).join('');document.getElementById('orderList').innerHTML=rows||'<p>Your cart is empty.</p>';document.getElementById('total').textContent='$'+cart.reduce((s,p)=>s+p[3],0).toFixed(2);}
+		function closeCart(){document.getElementById('modal').style.display='none'}function removeItem(i){cart.splice(i,1);save();openCart()}function placeOrder(){if(!cart.length)return showToast('Add an item first');localStorage.setItem('freshfine-last-order',JSON.stringify({items:cart,placedAt:new Date().toISOString()}));cart=[];save();closeCart();showToast('Order placed successfully!');}function showToast(t){const x=document.getElementById('toast');x.textContent=t;x.style.display='block';setTimeout(()=>x.style.display='none',2200)}renderProducts();save();
+	</script>
+</body>
+</html>

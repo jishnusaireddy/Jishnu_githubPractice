@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lifestyle | Modern Clothing</title>
+	<style>
+		:root {
+			--dark: #1f2933;
+			--accent: #d97706;
+			--light: #f8f5f0;
+			--muted: #6b7280;
+		}
+
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+		body { font-family: Arial, sans-serif; color: var(--dark); background: #fff; line-height: 1.6; }
+		a { color: inherit; text-decoration: none; }
+		header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 7%; border-bottom: 1px solid #eee; }
+		.logo { font-size: 1.6rem; font-weight: 700; letter-spacing: 2px; }
+		nav { display: flex; gap: 1.5rem; font-size: .95rem; }
+		nav a:hover { color: var(--accent); }
+		.hero { min-height: 65vh; display: flex; align-items: center; padding: 5rem 7%; background: linear-gradient(100deg, rgba(31,41,51,.9), rgba(31,41,51,.25)), url('https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=80') center/cover; color: white; }
+		.hero-content { max-width: 530px; }
+		.hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.05; margin-bottom: 1rem; }
+		.hero p { font-size: 1.1rem; margin-bottom: 1.75rem; }
+		.button { display: inline-block; padding: .8rem 1.5rem; background: var(--accent); color: white; border-radius: 4px; font-weight: 700; }
+		.button:hover { background: #b45309; }
+		section { padding: 4rem 7%; }
+		.section-heading { text-align: center; margin-bottom: 2rem; }
+		.section-heading h2 { font-size: 2rem; }
+		.section-heading p { color: var(--muted); }
+		.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.5rem; }
+		.card { background: var(--light); overflow: hidden; border-radius: 6px; }
+		.card img { width: 100%; height: 280px; object-fit: cover; display: block; }
+		.card-info { padding: 1rem; }
+		.card-info h3 { margin-bottom: .3rem; }
+		.price { color: var(--accent); font-weight: 700; }
+		.about { background: var(--light); text-align: center; }
+		.about p { max-width: 650px; margin: .75rem auto 0; color: var(--muted); }
+		footer { padding: 2rem 7%; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: .9rem; }
+		@media (max-width: 600px) { header { flex-direction: column; gap: .8rem; } nav { gap: .8rem; } .hero { min-height: 58vh; } }
+	</style>
+</head>
+<body>
+	<header>
+		<a class="logo" href="#top">LIFESTYLE</a>
+		<nav aria-label="Main navigation">
+			<a href="#shop">Shop</a>
+			<a href="#about">About</a>
+			<a href="#contact">Contact</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<div class="hero-content">
+				<h1>Style made for your lifestyle.</h1>
+				<p>Discover timeless essentials and modern looks designed to move with you.</p>
+				<a class="button" href="#shop">Shop the collection</a>
+			</div>
+		</section>
+
+		<section id="shop">
+			<div class="section-heading">
+				<h2>Featured collection</h2>
+				<p>Simple pieces. Effortless style.</p>
+			</div>
+			<div class="products">
+				<article class="card">
+					<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Classic white t-shirt">
+					<div class="card-info"><h3>Classic Tee</h3><p class="price">$29.00</p></div>
+				</article>
+				<article class="card">
+					<img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=700&q=80" alt="Beige casual jacket">
+					<div class="card-info"><h3>Everyday Jacket</h3><p class="price">$89.00</p></div>
+				</article>
+				<article class="card">
+					<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80" alt="Blue denim jeans">
+					<div class="card-info"><h3>Relaxed Denim</h3><p class="price">$64.00</p></div>
+				</article>
+			</div>
+		</section>
+
+		<section class="about" id="about">
+			<div class="section-heading"><h2>Wear what feels like you</h2></div>
+			<p>Lifestyle brings together quality fabrics, thoughtful design, and everyday comfort to help you look and feel your best.</p>
+		</section>
+	</main>
+
+	<footer id="contact">
+		<span>&copy; 2024 Lifestyle. All rights reserved.</span>
+		<span>hello@lifestyle.com &nbsp; | &nbsp; Follow us @lifestyle</span>
+	</footer>
+</body>
+</html>
